@@ -4,6 +4,9 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
+
+GET     /actor/sayHello/:name       controllers.ActorController.sayHello(name)
+
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
 

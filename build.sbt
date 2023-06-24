@@ -14,15 +14,17 @@ val kamonVersion = "2.6.1"
 val kamonCore = "io.kamon" %% "kamon-core" % kamonVersion
 val kamonAkka = "io.kamon" %% "kamon-akka" % kamonVersion
 val kamonStatusPage = "io.kamon" %% "kamon-status-page" % kamonVersion
-//val kamonBundle = "io.kamon" %% "kamon-bundle" % kamonVersion
+val kamonBundle = "io.kamon" %% "kamon-bundle" % kamonVersion
 val kamonDataDog = "io.kamon" %% "kamon-datadog" % kamonVersion
+val kamonPrometheus =  "io.kamon" %% "kamon-prometheus" % kamonVersion
 
 val kamonDependencies = Seq(
-//  kamonBundle,
-  kamonCore,
-  kamonAkka,
-  kamonStatusPage,
-  kamonDataDog
+  kamonBundle,
+//  kamonCore,
+//  kamonAkka,
+//  kamonStatusPage,
+  kamonDataDog,
+  kamonPrometheus
 )
 
 lazy val root = (project in file("."))
@@ -37,7 +39,7 @@ lazy val root = (project in file("."))
       "com.h2database" % "h2" % "1.4.200",
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
     ),
-    javaAgents += "io.kamon" % "kanela-agent" % "1.0.17",
+//    javaAgents += "io.kamon" % "kanela-agent" % "1.0.17",
     libraryDependencies ++= kamonDependencies :+ ddJavaAgent,
     scalacOptions ++= Seq(
       "-feature",
